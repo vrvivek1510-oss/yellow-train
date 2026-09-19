@@ -1,5 +1,36 @@
-<nav>
-    <div>
-        <h1>My App</h1>
+<section class="welcome">
+  <div class="welcome__bg">
+    @for (dot of dots; track dot) {
+      <span
+        class="welcome__dot"
+        [style.left.%]="dot.left"
+        [style.--float-duration.s]="dot.speed"
+        [style.--float-delay.s]="dot.delay"
+      ></span>
+    }
+  </div>
+
+  <div class="welcome__content">
+    <div class="welcome__badge">Welcome aboard</div>
+
+    <h1 class="welcome__title">
+      <span class="welcome__title-line">All aboard the</span>
+      <span class="welcome__title-line welcome__title-line--accent">Yellow Train</span>
+    </h1>
+
+    <p class="welcome__subtitle">
+      Hop on. The adventure is leaving the station — one smooth ride to wherever you're headed.
+    </p>
+
+    <div class="welcome__actions">
+      <button class="welcome__btn welcome__btn--primary" type="button">Start your journey</button>
+      <button class="welcome__btn welcome__btn--ghost" type="button">Take a tour</button>
     </div>
-</nav>
+  </div>
+
+  <div class="welcome__footer">
+    <span class="welcome__footer-line"></span>
+    <span class="welcome__footer-text">Next stop: your destination</span>
+    <span class="welcome__footer-line"></span>
+  </div>
+</section>
