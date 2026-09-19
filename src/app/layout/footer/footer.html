@@ -1,0 +1,77 @@
+<footer class="j-footer">
+  <div class="j-wrap">
+    <div class="j-footer__top">
+      <div class="j-footer__brand">
+        <a class="j-logo" routerLink="/journey" aria-label="Yellow Train Unicorns home">
+          <img class="j-logo__mark" src="YTU%20logo-transparent.png" alt="" />
+          <span class="j-logo__name">Yellow Train<span class="j-logo__name-accent">Unicorns</span></span>
+        </a>
+        <p class="j-footer__tag">Gifting. Reimagined.</p>
+        <p class="j-footer__desc">
+          Premium curated gifts, packaged with care and delivered with unicorn magic
+          from 48 city depots.
+        </p>
+        <div class="j-news">
+          @if (subscribed()) {
+            <p class="j-news__ok" role="status">🎉 You're aboard — golden ideas are on their way.</p>
+          } @else {
+            <form class="j-news__form" (submit)="subscribe($event)">
+              <label class="j-sr-only" for="j-news-email">Email address</label>
+              <input
+                id="j-news-email"
+                class="j-news__input"
+                type="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                [value]="email()"
+                (input)="email.set($any($event.target).value)"
+              />
+              <button class="j-news__btn" type="submit">Subscribe</button>
+            </form>
+          }
+        </div>
+        <div class="j-social" aria-label="Social media">
+          <a class="j-social__link" href="#" aria-label="Facebook">f</a>
+          <a class="j-social__link" href="#" aria-label="Instagram">ig</a>
+          <a class="j-social__link" href="#" aria-label="LinkedIn">in</a>
+          <a class="j-social__link" href="#" aria-label="X">𝕏</a>
+          <a class="j-social__link" href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+
+      <div class="j-footer__col">
+        <h4 class="j-footer__head">Shop</h4>
+        <a routerLink="/journey/gifts">Gifts</a>
+        <a routerLink="/journey/occasions">Occasions</a>
+        <a routerLink="/journey/customize">Customize</a>
+        <a routerLink="/journey/corporate">Corporate</a>
+      </div>
+      <div class="j-footer__col">
+        <h4 class="j-footer__head">Company</h4>
+        <a href="#">About us</a>
+        <a href="#">The stables</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+      </div>
+      <div class="j-footer__col">
+        <h4 class="j-footer__head">Resources</h4>
+        <a routerLink="/journey/stories">Stories</a>
+        <a href="#">Gifting guides</a>
+        <a href="#">Locations</a>
+        <a href="#">Shipping</a>
+      </div>
+      <div class="j-footer__col">
+        <h4 class="j-footer__head">Help</h4>
+        <a href="#">Track an order</a>
+        <a href="#">Reach support</a>
+        <a href="#">Returns</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    <div class="j-footer__legal">
+      <span>© 2026 Yellow Train Unicorns. All rights reserved.</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </div>
+</footer>

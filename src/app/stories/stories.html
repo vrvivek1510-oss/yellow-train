@@ -1,0 +1,54 @@
+<app-header />
+
+<main>
+  <section class="j-hero j-hero--sub">
+    <div class="j-hero__rails" aria-hidden="true"></div>
+    <div class="j-wrap j-hero__inner">
+      <p class="j-hero__kicker">Stories</p>
+      <h1 class="j-hero__title">Notes from the <span class="j-hero__title-accent">depot & stables</span></h1>
+      <p class="j-hero__lead">
+        Behind-the-scenes tales, gifting guides and the people who tie every ribbon.
+      </p>
+    </div>
+  </section>
+
+  <section class="j-section">
+    <div class="j-wrap">
+      <div class="j-section__head">
+        <h2 class="j-section__title">Latest stories</h2>
+        <p class="j-section__sub">Fresh from the tracks and the unicorn stables.</p>
+      </div>
+      <div class="j-stories">
+        <a class="j-story j-story--feature" href="#">
+          <span class="j-story__art" aria-hidden="true">🚂🎁</span>
+          <div class="j-story__body">
+            <span class="j-story__tag">Featured · {{ stories[0].tag }}</span>
+            <h3 class="j-story__title">{{ stories[0].title }}</h3>
+            <span class="j-story__meta">{{ stories[0].date }} · {{ stories[0].read }}</span>
+          </div>
+        </a>
+        <div class="j-story__list">
+          @for (story of stories; track story.title; let i = $index) {
+            @if (i > 0) {
+              <a class="j-story j-story--row" href="#">
+                <span class="j-story__meta">{{ story.date }} · {{ story.read }}</span>
+                <h4 class="j-story__title">{{ story.title }}</h4>
+                <span class="j-story__tag">{{ story.tag }} →</span>
+              </a>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-band j-band--statement">
+    <div class="j-wrap">
+      <p class="j-band__statement">
+        "Every box has a backstory. These are ours."
+      </p>
+    </div>
+  </section>
+</main>
+
+<app-footer />

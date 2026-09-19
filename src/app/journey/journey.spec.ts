@@ -22,11 +22,12 @@ describe('Journey', () => {
     expect(component).toBeTruthy();
   });
 
-  it('renders hero, categories, gifts, stats and stories', () => {
+  it('renders hero, route cards, stats and reviews', () => {
+    fixture.detectChanges();
     const el: HTMLElement = fixture.nativeElement;
     expect(el.querySelector('.j-hero__title')?.textContent).toContain('yellow train');
-    expect(el.querySelectorAll('.j-card').length).toBe(6);
-    expect(el.querySelectorAll('.j-gift').length).toBe(4);
-    expect(el.querySelectorAll('.j-stat').length).toBe(4);
+    expect(el.querySelectorAll('.j-card').length).toBe(component['routes'].length);
+    expect(el.querySelectorAll('.j-stat').length).toBe(component['stats'].length);
+    expect(el.querySelectorAll('.j-review').length).toBe(component['reviews'].length);
   });
 });

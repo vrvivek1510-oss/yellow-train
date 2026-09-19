@@ -1,0 +1,113 @@
+<header class="j-header">
+  <div class="j-nav">
+    <div class="j-wrap j-nav__inner">
+      <a class="j-logo" routerLink="/journey" aria-label="Yellow Train Unicorns home">
+        <img class="j-logo__mark" src="YTU%20logo-transparent.png" alt="" />
+        <span class="j-logo__name">Yellow Train<span class="j-logo__name-accent">Unicorns</span></span>
+      </a>
+      <nav class="j-menu" aria-label="Primary">
+        <div class="j-menu__item">
+          <a
+            class="j-menu__link"
+            routerLink="/journey/gifts"
+            routerLinkActive="j-menu__link--active"
+          >Gifts</a>
+          <div class="j-menu__drop" role="menu">
+            <a class="j-menu__drop-item" href="#" role="menuitem">All gifts</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Best sellers</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">For kids</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Exclusive</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Deals of the day</a>
+          </div>
+        </div>
+        <div class="j-menu__item">
+          <a
+            class="j-menu__link"
+            routerLink="/journey/occasions"
+            routerLinkActive="j-menu__link--active"
+          >Occasions</a>
+          <div class="j-menu__drop" role="menu">
+            <a class="j-menu__drop-item" href="#" role="menuitem">Birthdays</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Weddings & anniversaries</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">New baby</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Festivals</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Seasonal</a>
+          </div>
+        </div>
+        <div class="j-menu__item">
+          <a
+            class="j-menu__link"
+            routerLink="/journey/customize"
+            routerLinkActive="j-menu__link--active"
+          >Customize</a>
+          <div class="j-menu__drop" role="menu">
+            <a class="j-menu__drop-item" href="#" role="menuitem">Tins</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Monograms & engraving</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Notes & cards</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Private label</a>
+          </div>
+        </div>
+        <div class="j-menu__item">
+          <a
+            class="j-menu__link"
+            routerLink="/journey/corporate"
+            routerLinkActive="j-menu__link--active"
+          >Corporate</a>
+          <div class="j-menu__drop" role="menu">
+            <a class="j-menu__drop-item" href="#" role="menuitem">Volume pricing</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Branded packaging</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">The corporate desk</a>
+          </div>
+        </div>
+        <div class="j-menu__item">
+          <a
+            class="j-menu__link"
+            routerLink="/journey/stories"
+            routerLinkActive="j-menu__link--active"
+          >Stories</a>
+          <div class="j-menu__drop" role="menu">
+            <a class="j-menu__drop-item" href="#" role="menuitem">Latest stories</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">Gifting guides</a>
+            <a class="j-menu__drop-item" href="#" role="menuitem">From the stables</a>
+          </div>
+        </div>
+      </nav>
+      <div class="j-nav__actions">
+        <button class="j-search" type="button" aria-label="Search">🔍</button>
+        <a class="j-cta" href="#">Start gifting</a>
+        <button
+          class="j-burger"
+          type="button"
+          aria-label="Toggle menu"
+          [attr.aria-expanded]="menuOpen()"
+          (click)="toggleMenu()"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @if (menuOpen()) {
+    <div class="j-overlay" (click)="closeMenu()" role="dialog" aria-label="Menu">
+      <nav class="j-overlay__menu" aria-label="Mobile">
+        @for (item of nav; track item.label) {
+          <a
+            class="j-overlay__link"
+            routerLink="{{ item.route }}"
+            routerLinkActive="j-overlay__link--active"
+            (click)="closeMenu()"
+          >{{ item.label }}</a>
+          <div class="j-overlay__subs">
+            @for (sub of item.items; track sub) {
+              <a class="j-overlay__sub" href="#" (click)="closeMenu()">{{ sub }}</a>
+            }
+          </div>
+        }
+      </nav>
+      <a class="j-cta j-overlay__cta" href="#" (click)="closeMenu()">Start gifting</a>
+    </div>
+  }
+</header>
