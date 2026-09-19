@@ -1,5 +1,8 @@
 <header class="j-header">
-  <div class="j-nav">
+  <div
+    class="j-nav"
+    [class.j-nav--light]="isLight() && !menuOpen()"
+  >
     <div class="j-wrap j-nav__inner">
       <a class="j-logo" routerLink="/journey" aria-label="Yellow Train Unicorns home">
         <img class="j-logo__mark" src="YTU%20logo-transparent.png" alt="" />

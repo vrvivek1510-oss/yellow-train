@@ -32,7 +32,7 @@ body {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   font-family: var(--j-body);
   font-size: 1rem;
   line-height: 1.6;
@@ -79,7 +79,10 @@ a {
   margin-inline: auto;
 }
 
-/* ---------------------------------- Navbar --------------------------------- */
+app-root,
+router-outlet {
+  display: contents;
+}
 
 .j-nav {
   position: sticky;
@@ -88,6 +91,51 @@ a {
   background: rgba(23, 20, 15, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--j-line-dark);
+  transition: background 0.35s var(--j-ease), border-color 0.35s var(--j-ease), box-shadow 0.35s var(--j-ease);
+}
+
+.j-nav--light {
+  background: rgba(247, 242, 233, 0.9);
+  border-bottom-color: var(--j-line);
+  box-shadow: 0 6px 24px rgba(23, 20, 15, 0.06);
+}
+
+.j-nav--light .j-logo__mark {
+  filter: drop-shadow(0 0 14px rgba(255, 204, 26, 0.35));
+}
+
+.j-nav--light .j-logo__name {
+  color: var(--j-ink);
+}
+
+.j-nav--light .j-logo__name-accent {
+  color: var(--j-gold);
+}
+
+.j-nav--light .j-menu__link {
+  color: #4a4438;
+}
+
+.j-nav--light .j-menu__link:hover,
+.j-nav--light .j-menu__link--active {
+  color: var(--j-gold);
+}
+
+.j-nav--light .j-search {
+  color: #4a4438;
+}
+
+.j-nav--light .j-search:hover {
+  background: rgba(217, 165, 32, 0.14);
+}
+
+.j-nav--light .j-burger {
+  border-color: var(--j-line);
+}
+
+.j-nav--light .j-burger span,
+.j-nav--light .j-burger:hover span {
+  background: var(--j-ink);
 }
 
 .j-nav__inner {
