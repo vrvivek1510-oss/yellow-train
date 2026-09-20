@@ -1,0 +1,60 @@
+<app-header />
+
+<main>
+  <section class="j-hero j-hero--sub j-hero--customize" data-j-nav="dark">
+    <div class="j-hero__rails" aria-hidden="true"></div>
+    <div class="j-wrap j-hero__inner">
+      <p class="j-hero__kicker">Customize</p>
+      <h1 class="j-hero__title">Design it <span class="j-hero__title-accent">your way</span></h1>
+      <p class="j-hero__lead">
+        Custom tins, monograms, engraving and hand-written notes. Make every
+        golden hour truly yours.
+      </p>
+      <div class="j-hero__actions">
+        <a class="j-btn j-btn--secondary" routerLink="/journey/gifts">
+          Start with a gift
+          <span class="j-btn__icon" aria-hidden="true">🎁</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-section" data-j-nav="light">
+    <div class="j-wrap">
+      <div class="j-section__head">
+        <h2 class="j-section__title">How customization works</h2>
+        <p class="j-section__sub">Four easy stops before the train departs.</p>
+      </div>
+      <div class="j-steps">
+        @for (step of steps; track step.num) {
+          <article class="j-step">
+            <span class="j-step__num">{{ step.num }}</span>
+            <span class="j-step__icon">{{ step.icon }}</span>
+            <h3 class="j-step__title">{{ step.title }}</h3>
+            <p class="j-step__text">{{ step.text }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="j-banner" data-j-nav="dark">
+    <div class="j-wrap j-banner__inner">
+      <div class="j-banner__copy">
+        <p class="j-banner__kicker">Private label</p>
+        <h2 class="j-banner__title">A whole box in your brand</h2>
+        <p class="j-banner__text">
+          Logos on the tin, your colors on the ribbon, your story on the card.
+          Perfect for product launches and event goodie bags.
+        </p>
+        <a class="j-btn j-btn--ghost" href="#">Talk to the studio</a>
+      </div>
+      <div class="j-hero__art j-hero__art--banner" aria-hidden="true">
+        <span class="j-hero__emoji">🎨</span>
+        <span class="j-hero__emoji">✨</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer />

@@ -1,0 +1,46 @@
+<app-header />
+
+<main>
+  <section class="j-hero j-hero--sub j-hero--occasion" data-j-nav="dark">
+    <div class="j-hero__rails" aria-hidden="true"></div>
+    <div class="j-wrap j-hero__inner">
+      <p class="j-hero__kicker">Occasions</p>
+      <h1 class="j-hero__title">Every occasion has <span class="j-hero__title-accent">a golden route</span></h1>
+      <p class="j-hero__lead">
+        Pick the moment, and we'll map the ride — from first idea to the final smile.
+      </p>
+    </div>
+  </section>
+
+  <section class="j-section" data-j-nav="light">
+    <div class="j-wrap">
+      <div class="j-section__head">
+        <h2 class="j-section__title">Gift collections by occasion</h2>
+        <p class="j-section__sub">Eight routes to the perfect present — all aboard.</p>
+      </div>
+      <div class="j-grid j-grid--cat">
+        @for (cat of categories; track cat.title) {
+          <a class="j-card" href="#">
+            <span class="j-card__icon">{{ cat.icon }}</span>
+            <h3 class="j-card__title">{{ cat.title }}</h3>
+            <p class="j-card__text">{{ cat.text }}</p>
+            <span class="j-card__link">
+              <span>Explore collection</span>
+              <span class="j-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="j-band j-band--statement" data-j-nav="dark">
+    <div class="j-wrap">
+      <p class="j-band__statement">
+        "Tell us the occasion and we'll handle the magic — wrapped, noted and delivered on schedule."
+      </p>
+    </div>
+  </section>
+</main>
+
+<app-footer />

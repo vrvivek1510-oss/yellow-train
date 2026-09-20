@@ -1,0 +1,57 @@
+<app-header />
+
+<main>
+  <section class="j-hero j-hero--sub j-hero--corporate" data-j-nav="dark">
+    <div class="j-hero__rails" aria-hidden="true"></div>
+    <div class="j-wrap j-hero__inner">
+      <p class="j-hero__kicker">Corporate</p>
+      <h1 class="j-hero__title">Gifting made for <span class="j-hero__title-accent">happy teams</span></h1>
+      <p class="j-hero__lead">
+        Thank clients, onboard new hires and keep teams smiling — at scale,
+        on schedule and on brand.
+      </p>
+      <div class="j-hero__actions">
+        <a class="j-btn j-btn--solid" href="#">Talk to our corporate desk</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-band j-band--stats" data-j-nav="dark">
+    <div class="j-wrap j-stats">
+      @for (stat of perks; track stat.label) {
+        <div class="j-stat">
+          <span class="j-stat__value">{{ stat.value }}</span>
+          <span class="j-stat__label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="j-section" data-j-nav="light">
+    <div class="j-wrap">
+      <div class="j-section__head">
+        <h2 class="j-section__title">Why teams ride with us</h2>
+        <p class="j-section__sub">Everything a thoughtful workplace needs in one golden box.</p>
+      </div>
+      <div class="j-grid j-grid--features">
+        @for (feature of features; track feature.title) {
+          <article class="j-feature">
+            <span class="j-feature__icon">{{ feature.icon }}</span>
+            <h3 class="j-feature__title">{{ feature.title }}</h3>
+            <p class="j-feature__text">{{ feature.text }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="j-band j-band--statement" data-j-nav="dark">
+    <div class="j-wrap">
+      <p class="j-band__statement">
+        "We ship the culture your people feel — one unicorn-stamped box at a time."
+      </p>
+    </div>
+  </section>
+</main>
+
+<app-footer />

@@ -1,53 +1,37 @@
-<header class="j-header">
-  <div class="j-utility">
-    <div class="j-wrap j-utility__inner">
-      <span class="j-utility__item">Unicorns</span>
-      <span class="j-utility__item">Careers</span>
-      <span class="j-utility__item">Support</span>
-      <span class="j-utility__item">🌐 English</span>
-    </div>
-  </div>
-
-  <div class="j-nav">
-    <div class="j-wrap j-nav__inner">
-      <a class="j-logo" routerLink="/">
-        <span class="j-logo__mark">🦄</span>
-        <span class="j-logo__name">Yellow Train<span class="j-logo__name-accent">Unicorns</span></span>
-      </a>
-      <nav class="j-menu">
-        <a class="j-menu__link" href="#">Gifts</a>
-        <a class="j-menu__link" href="#">Occasions</a>
-        <a class="j-menu__link" href="#">Customize</a>
-        <a class="j-menu__link" href="#">Corporate</a>
-        <a class="j-menu__link" href="#">Stories</a>
-      </nav>
-      <div class="j-nav__actions">
-        <button class="j-search" type="button" aria-label="Search">🔍</button>
-        <a class="j-cta" href="#">Start gifting</a>
-      </div>
-    </div>
-  </div>
-</header>
+<app-header />
 
 <main>
-  <section class="j-hero">
+  <section class="j-hero" data-j-nav="dark">
     <div class="j-hero__rails" aria-hidden="true"></div>
     <div class="j-wrap j-hero__inner">
-      <p class="j-hero__kicker">Yellow Train Unicorns · Gifting, reimagined</p>
+      <p class="j-hero__kicker">Gifting, reimagined</p>
       <h1 class="j-hero__title">Every gift boards<br />the <span class="j-hero__title-accent">yellow train</span></h1>
       <p class="j-hero__lead">
         From birthdays to boardrooms, we craft gifts that ride the rails of
         delight — packaged, personalized and delivered with a touch of unicorn magic.
       </p>
       <div class="j-hero__actions">
-        <a class="j-btn j-btn--solid" href="#gifts">Browse gifts</a>
-        <a class="j-btn j-btn--outline" href="#occasions">Tell us the occasion</a>
+        <a class="j-btn j-btn--solid" routerLink="/journey/gifts">Browse gifts</a>
+        <a class="j-btn j-btn--secondary" routerLink="/journey/occasions">
+          <span>Tell us the occasion</span>
+          <span class="j-btn__icon" aria-hidden="true">🎁</span>
+        </a>
+      </div>
+
+      <div class="j-hero__art" aria-hidden="true">
+        <span class="j-hero__emoji">🚂</span>
+        <span class="j-hero__emoji">💨</span>
+        <span class="j-hero__emoji">🦄</span>
+      </div>
+
+      <div class="j-hero__scroll" aria-hidden="true">
+        <span class="j-hero__scroll-label">Scroll to explore</span>
+        <span class="j-hero__scroll-chev"></span>
       </div>
     </div>
-    <div class="j-hero__art" aria-hidden="true">🚂💨🦄</div>
   </section>
 
-  <section class="j-band j-band--statement">
+  <section class="j-band j-band--statement" data-j-nav="dark">
     <div class="j-wrap">
       <p class="j-band__statement">
         "We break barriers so gift-givers can move faster — from first idea to
@@ -56,66 +40,33 @@
     </div>
   </section>
 
-  <section class="j-section" id="occasions">
+  <section class="j-section" data-j-nav="light">
     <div class="j-wrap">
       <div class="j-section__head">
-        <h2 class="j-section__title">Explore gift collections</h2>
-        <p class="j-section__sub">Six routes to the perfect present — all aboard.</p>
+        <h2 class="j-section__title">Pick your route</h2>
+        <p class="j-section__sub">Four platforms to start your journey today.</p>
       </div>
       <div class="j-grid j-grid--cat">
-        @for (cat of categories; track cat.title) {
-          <a class="j-card" href="#">
-            <span class="j-card__icon">{{ cat.icon }}</span>
-            <h3 class="j-card__title">{{ cat.title }}</h3>
-            <p class="j-card__text">{{ cat.text }}</p>
-            <span class="j-card__link">Explore collection →</span>
+        @for (route of routes; track route.route) {
+          <a class="j-card" [routerLink]="route.route">
+            <span class="j-card__icon">{{ route.icon }}</span>
+            <h3 class="j-card__title">{{ route.title }}</h3>
+            <p class="j-card__text">{{ route.text }}</p>
+            <span class="j-card__link">
+              <span>{{ route.cta }}</span>
+              <span class="j-card__arrow" aria-hidden="true">→</span>
+            </span>
           </a>
         }
       </div>
     </div>
   </section>
 
-  <section class="j-banner">
-    <div class="j-wrap j-banner__inner">
-      <div class="j-banner__copy">
-        <p class="j-banner__kicker">Customize</p>
-        <h2 class="j-banner__title">Design it your way</h2>
-        <p class="j-banner__text">
-          Custom tins, monograms, engraving and hand-written notes. Make every
-          golden hour truly yours.
-        </p>
-        <a class="j-btn j-btn--outline" href="#">Start customizing</a>
-      </div>
-      <div class="j-banner__art" aria-hidden="true">🎨✨</div>
-    </div>
-  </section>
-
-  <section class="j-section j-section--grey" id="gifts">
-    <div class="j-wrap">
-      <div class="j-section__head">
-        <h2 class="j-section__title">Featured gifts</h2>
-        <p class="j-section__sub">Fast favorites among our riders this season.</p>
-      </div>
-      <div class="j-grid j-grid--gifts">
-        @for (gift of gifts; track gift.name) {
-          <article class="j-gift">
-            <div class="j-gift__art" aria-hidden="true">{{ gift.emoji }}</div>
-            <h3 class="j-gift__name">{{ gift.name }}</h3>
-            <p class="j-gift__desc">{{ gift.desc }}</p>
-            <div class="j-gift__foot">
-              <span class="j-gift__price">{{ gift.price }}</span>
-              <button class="j-gift__add" type="button">Add to gift box</button>
-            </div>
-          </article>
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="j-band j-band--stats">
+  <section class="j-band j-band--stats" data-j-nav="dark">
     <div class="j-wrap j-stats">
       @for (stat of stats; track stat.label) {
         <div class="j-stat">
+          <span class="j-stat__icon" aria-hidden="true">{{ stat.icon }}</span>
           <span class="j-stat__value">{{ stat.value }}</span>
           <span class="j-stat__label">{{ stat.label }}</span>
         </div>
@@ -123,70 +74,26 @@
     </div>
   </section>
 
-  <section class="j-section">
+  <section class="j-section j-section--grey" data-j-nav="light">
     <div class="j-wrap">
       <div class="j-section__head">
-        <h2 class="j-section__title">Latest stories</h2>
-        <p class="j-section__sub">Notes from the depot, the tracks and the unicorn stables.</p>
+        <h2 class="j-section__title">Riders love the ride</h2>
+        <p class="j-section__sub">Real words from real gift-givers on the line.</p>
       </div>
-      <div class="j-stories">
-        <a class="j-story j-story--feature" href="#">
-          <span class="j-story__art" aria-hidden="true">🚂🎁</span>
-          <div class="j-story__body">
-            <span class="j-story__tag">Featured · {{ stories[0].tag }}</span>
-            <h3 class="j-story__title">{{ stories[0].title }}</h3>
-            <span class="j-story__meta">{{ stories[0].date }} · {{ stories[0].read }}</span>
-          </div>
-        </a>
-        <div class="j-story__list">
-          @for (story of stories; track story.title; let i = $index) {
-            @if (i > 0) {
-              <a class="j-story j-story--row" href="#">
-                <span class="j-story__meta">{{ story.date }} · {{ story.read }}</span>
-                <h4 class="j-story__title">{{ story.title }}</h4>
-                <span class="j-story__tag">{{ story.tag }} →</span>
-              </a>
-            }
-          }
-        </div>
+      <div class="j-reviews">
+        @for (review of reviews; track review.name) {
+          <article class="j-review">
+            <span class="j-review__stars" aria-label="{{ review.rating }} out of 5 stars">{{ '★'.repeat(review.rating) }}</span>
+            <p class="j-review__quote">"{{ review.quote }}"</p>
+            <div class="j-review__meta">
+              <span class="j-review__name">{{ review.name }}</span>
+              <span class="j-review__occasion">{{ review.occasion }} · Verified delivery</span>
+            </div>
+          </article>
+        }
       </div>
     </div>
   </section>
 </main>
 
-<footer class="j-footer">
-  <div class="j-wrap j-footer__cols">
-    <div class="j-footer__col">
-      <h4 class="j-footer__head">Shop</h4>
-      <a href="#">Birthdays</a>
-      <a href="#">Weddings</a>
-      <a href="#">New Baby</a>
-      <a href="#">Corporate</a>
-    </div>
-    <div class="j-footer__col">
-      <h4 class="j-footer__head">Company</h4>
-      <a href="#">About us</a>
-      <a href="#">The stables</a>
-      <a href="#">Careers</a>
-      <a href="#">Press</a>
-    </div>
-    <div class="j-footer__col">
-      <h4 class="j-footer__head">Resources</h4>
-      <a href="#">Gifting guides</a>
-      <a href="#">Stories</a>
-      <a href="#">Locations</a>
-      <a href="#">Shipping</a>
-    </div>
-    <div class="j-footer__col">
-      <h4 class="j-footer__head">Help</h4>
-      <a href="#">Track an order</a>
-      <a href="#">Reach support</a>
-      <a href="#">Returns</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-  <div class="j-wrap j-footer__legal">
-    <span>© 2026 Yellow Train Unicorns. All rights reserved.</span>
-    <span>Privacy · Terms · Cookies</span>
-  </div>
-</footer>
+<app-footer />

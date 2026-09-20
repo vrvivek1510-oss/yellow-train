@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.j-hero--customize {
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(122, 63, 212, 0.3), transparent 60%),
+    linear-gradient(180deg, #1d1628 0%, #12100c 100%);
+}
+
+.j-hero--customize .j-hero__title-accent {
+  color: #c9a0ff;
+  text-shadow: 0 4px 30px rgba(150, 80, 255, 0.4);
+}

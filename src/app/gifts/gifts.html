@@ -1,0 +1,53 @@
+<app-header />
+
+<main>
+  <section class="j-hero j-hero--sub" data-j-nav="dark">
+    <div class="j-hero__rails" aria-hidden="true"></div>
+    <div class="j-wrap j-hero__inner">
+      <p class="j-hero__kicker">Gifts</p>
+      <h1 class="j-hero__title">Find the <span class="j-hero__title-accent">perfect ride</span></h1>
+      <p class="j-hero__lead">
+        Browse our catalog and filter your way to the gift that feels made for the moment.
+      </p>
+    </div>
+  </section>
+
+  <section class="j-section j-section--grey" data-j-nav="light">
+    <div class="j-wrap">
+      <div class="j-section__head">
+        <h2 class="j-section__title">Featured gifts</h2>
+        <p class="j-section__sub">Filter to find the perfect ride this season.</p>
+      </div>
+
+      <div class="j-filter" role="group" aria-label="Filter gifts">
+        @for (tag of tags; track tag) {
+          <button
+            class="j-chip"
+            [class.j-chip--active]="selectedTag() === tag"
+            type="button"
+            (click)="selectedTag.set(tag)"
+          >
+            {{ tag }}
+          </button>
+        }
+      </div>
+
+      <div class="j-grid j-grid--gifts">
+        @for (gift of filteredGifts(); track gift.name) {
+          <article class="j-gift">
+            <div class="j-gift__art" aria-hidden="true">{{ gift.emoji }}</div>
+            <span class="j-gift__tag">{{ gift.tag }}</span>
+            <h3 class="j-gift__name">{{ gift.name }}</h3>
+            <p class="j-gift__desc">{{ gift.desc }}</p>
+            <div class="j-gift__foot">
+              <span class="j-gift__price">{{ gift.price }}</span>
+              <button class="j-gift__add" type="button">Add to gift box</button>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer />
