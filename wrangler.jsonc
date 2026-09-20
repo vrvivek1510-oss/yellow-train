@@ -8,6 +8,6 @@
   },
   "assets": {
     "binding": "ASSETS",
-    "directory": "dist\\browser"
+    "directory": "./dist/browser"
   }
 }
